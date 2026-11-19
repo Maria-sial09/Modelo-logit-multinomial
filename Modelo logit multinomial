@@ -104,7 +104,7 @@ print("Parámetros del modelo Logit inicializados.")
 
 
 # Ecuaciones de utilidad determinística
-V1 = ASC_BUS  + B_TIME_C * BUS_TTC_SCALED + B_TIME_E*BUS_TTE_SCALED + B_TIME_AB*BUS_TTAB_SCALED + B_COST * BUS_CO_SCALED +
+V1 = ASC_BUS  + B_TIME_C * BUS_TTC_SCALED + B_TIME_E*BUS_TTE_SCALED + B_TIME_AB*BUS_TTAB_SCALED + B_COST * BUS_CO_SCALED
 V2 = ASC_MOTO + B_TIME_C * MOTO_TTC_SCALED + B_TIME_E*MOTO_TTE_SCALED + B_TIME_AB*MOTO_TTAB_SCALED + B_COST * MOTO_CO_SCALED
 V3 = ASC_SIT  + B_TIME_C * SIT_TTC_SCALED + B_TIME_E*SIT_TTE_SCALED + B_TIME_AB*SIT_TTAB_SCALED  + B_COST * SIT_CO_SCALED
 
@@ -159,9 +159,9 @@ votc_soles_hora = (b_timee_estimado / b_cost_estimado) * 60
 vote_soles_hora = (b_timec_estimado / b_cost_estimado) * 60
 votab_soles_hora = (b_timeab_estimado / b_cost_estimado) * 60
 
-print(f"Coeficiente Tiempo (B_TIME_C): {b_time_estimado:.4g}")
-print(f"Coeficiente Tiempo (B_TIME_E): {b_time_estimado:.4g}")
-print(f"Coeficiente Tiempo (B_TIME_AB): {b_time_estimado:.4g}")
+print(f"Coeficiente Tiempo (B_TIME_C): {b_timec_estimado:.4g}")
+print(f"Coeficiente Tiempo (B_TIME_E): {b_timee_estimado:.4g}")
+print(f"Coeficiente Tiempo (B_TIME_AB): {b_timeab_estimado:.4g}")
 print(f"Coeficiente Costo (B_COST)  : {b_cost_estimado:.4g}")
 
 print("-" * 50)
