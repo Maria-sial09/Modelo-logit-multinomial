@@ -201,3 +201,4 @@ for name, algo in algos.items():
           f'{resultados_algos[name].data.gradientNorm:.2g}')
 
 
+# La diferencia en la funcion de maxima verosimilitud entre metodos es cero o insignificante, lo que valida que la solucion matematica del modelo logit es global y unica
