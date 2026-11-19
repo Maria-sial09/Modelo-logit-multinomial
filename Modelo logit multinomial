@@ -53,3 +53,37 @@ df_limpio = database.data
 print(f"Limpieza completada. Registros útiles para el modelo Logit: {len(df_limpio)}")
 
 
+plt.figure(figsize=(10, 5))
+chart = sns.countplot(data=df_limpio, x='CHOICE', palette='Set2')
+chart.set_title('Distribución de Elección Modal en los Escenarios Evaluados')
+chart.set_xlabel('Modo de Transporte Elegido')
+chart.set_ylabel('Cantidad de Elecciones')
+
+#Editar con las variables reales
+
+# Ajustar las etiquetas según los códigos de CHOICE (elección, escenarios)
+# 1: SIT, 2: Mototaxi, 3: Bus Actual, 4: Taxi
+chart.set_xticklabels(['SIT (Buses)', 'Mototaxis', 'Buses Actuales', 'Taxis/Autos'])
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+
+# Alternativa 1: SIT (Sistema Integrado de Transporte)
+SIT_TT_SCALED   = exp.DefineVariable('SIT_TT_SCALED',   SIT_TT / 100.0, database) # Divididas entre 100 para escalarlas y que el modelo no se cuelgue xd
+SIT_CO_SCALED   = exp.DefineVariable('SIT_CO_SCALED',   SIT_CO / 100.0, database)
+
+# Alternativa 2: Mototaxis
+MOTO_TT_SCALED  = exp.DefineVariable('MOTO_TT_SCALED',  MOTO_TT / 100.0, database)
+MOTO_CO_SCALED  = exp.DefineVariable('MOTO_CO_SCALED',  MOTO_CO / 100.0, database)
+
+# Alternativa 3: Buses Actuales
+BUS_TT_SCALED   = exp.DefineVariable('BUS_TT_SCALED',   BUS_TT / 100.0, database)
+BUS_CO_SCALED   = exp.DefineVariable('BUS_CO_SCALED',   BUS_CO / 100.0, database)
+
+# Alternativa 4: Taxis / Autos particulares
+TAXI_TT_SCALED  = exp.DefineVariable('TAXI_TT_SCALED',  TAXI_TT / 100.0, database)
+TAXI_CO_SCALED  = exp.DefineVariable('TAXI_CO_SCALED',  TAXI_CO / 100.0, database)
+
+print("Variables de tiempo de viaje y costo escaladas correctamente.")
+
+
