@@ -163,20 +163,21 @@ print("Nota para la tesis: Verificar que B_TIME_C, B_TIME_E, B_TIME_AB y B_COST 
 import biogeme.optimization as opt
 
 # Definir los algoritmos de optimización a evaluar
+
 algos = {
-    'scipy                ': opt.scipy,
+    'scipy': opt.scipy,
     'Trust region (dogleg)': opt.newtonTrustRegionForBiogeme,
-    'Trust region (cg)    ': opt.newtonTrustRegionForBiogeme,
-    'TR-BFGS              ': opt.bfgsTrustRegionForBiogeme,
-    'Simple bounds Newton ': opt.simpleBoundsNewtonAlgorithmForBiogeme,
-    'Simple bounds hybrid ': opt.simpleBoundsNewtonAlgorithmForBiogeme
+    'Trust region (cg)': opt.newtonTrustRegionForBiogeme,
+    'TR-BFGS': opt.bfgsTrustRegionForBiogeme,
+    'Simple bounds Newton': opt.simpleBoundsNewtonAlgorithmForBiogeme,
+    'Simple bounds hybrid': opt.simpleBoundsNewtonAlgorithmForBiogeme
 }
 
 algoParameters = {
     'Trust region (dogleg)': {'dogleg': True},
     'Trust region (cg)': {'dogleg': False},
-    'Simple bounds Newton ': {'proportionAnalyticalHessian': 1.0},
-    'Simple bounds hybrid ': {'proportionAnalyticalHessian': 0.5}
+    'Simple bounds Newton': {'proportionAnalyticalHessian': 1.0},
+    'Simple bounds hybrid': {'proportionAnalyticalHessian': 0.5}
 }
 
 # Desactivar reportes automáticos para acelerar el bucle
@@ -186,17 +187,15 @@ biogeme_model.generatePickle = False
 resultados_algos = {}
 
 print("Iniciando validación de algoritmos...")
-print("Algorithm\t\tloglike\t\tnormg")
-print("+++++++++\t\t+++++++\t\t+++++")
+print(f"{'Algorithm'.ljust(25)} loglike      normg")
+print("-" * 48)
 
 for name, algo in algos.items():
     p = algoParameters.get(name)
-    # Calibrar el modelo del SIT con cada algoritmo independiente
     resultados_algos[name] = biogeme_model.estimate(algorithm=algo, algoParameters=p)
 
-    print(f'{name}\t{resultados_algos[name].data.logLike:.2f}\t'
-          f'{resultados_algos[name].data.gradientNorm:.2g}')
-
+    print(f"{name.ljust(25)} {resultados_algos[name].data.logLike:8.2f}     "
+          f"{resultados_algos[name].data.gradientNorm:.2g}")
 
 # La diferencia en la funcion de maxima verosimilitud entre metodos es cero o insignificante, lo que valida que la solucion matematica del modelo logit es global y unica
 
