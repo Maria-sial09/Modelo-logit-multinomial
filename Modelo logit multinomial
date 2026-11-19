@@ -105,14 +105,12 @@ V4 = ASC_TAXI + B_TIME * TAXI_TT_SCALED + B_COST * TAXI_CO_SCALED
 # Mapear las utilidades numéricamente con el valor de la variable CHOICE
 V = {1: V1,
      2: V2,
-     3: V3,
-     4: V4}
+     3: V3}
 
 # Disponibilidad de las alternativas en los escenarios de la encuesta
-av = {1: SIT_AV,
+av = {1: BUS_AV,
       2: MOTO_AV,
-      3: BUS_AV,
-      4: TAXI_AV}
+      3: SIT_AV}
 
 print("Funciones de utilidad y diccionarios de disponibilidad estructurados.")
 
