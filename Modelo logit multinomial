@@ -223,4 +223,4 @@ print(f"Validación concluida sobre un total de {total_obs_validacion} observaci
 print("Para la redacción de la tesis: La cercanía y estabilidad de los valores de Log-likelihood ")
 print("entre bloques demuestra que las funciones de utilidad del SIT poseen una alta capacidad de transferencia y predicción.")
 
-#
+# Se establece que la función se mantiene en un rango estable y similar entre el bloque de datos, lo que valida que el modelo no sufre de sobreajuste y es perfectamente confiable para las proyecciones de un SIT en la ciudad de Piura.
