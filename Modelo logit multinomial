@@ -100,3 +100,24 @@ B_COST    = exp.Beta('B_COST', 0, None, None, 0)      # Coeficiente del costo (d
 print("Parámetros del modelo Logit inicializados.")
 
 
+# Ecuaciones de utilidad determinística
+V1 = ASC_SIT  + B_TIME * SIT_TT_SCALED  + B_COST * SIT_CO_SCALED
+V2 = ASC_MOTO + B_TIME * MOTO_TT_SCALED + B_COST * MOTO_CO_SCALED
+V3 = ASC_BUS  + B_TIME * BUS_TT_SCALED  + B_COST * BUS_CO_SCALED
+V4 = ASC_TAXI + B_TIME * TAXI_TT_SCALED + B_COST * TAXI_CO_SCALED
+
+# Mapear las utilidades numéricamente con el valor de la variable CHOICE
+V = {1: V1,
+     2: V2,
+     3: V3,
+     4: V4}
+
+# Disponibilidad de las alternativas en los escenarios de la encuesta
+av = {1: SIT_AV,
+      2: MOTO_AV,
+      3: BUS_AV,
+      4: TAXI_AV}
+
+print("Funciones de utilidad y diccionarios de disponibilidad estructurados.")
+
+
