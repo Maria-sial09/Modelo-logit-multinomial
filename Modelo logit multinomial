@@ -1,0 +1,18 @@
+# Importación de libreriras a utilizar
+import pandas as pd
+import numpy as np
+import biogeme.database as db
+import biogeme.biogeme as bio
+import biogeme.models as models
+import biogeme.expressions as exp
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Configuración para mostrar de forma óptima las tablas en Colab
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1000)
+
+print("Librerías importadas correctamente.")
+
+
