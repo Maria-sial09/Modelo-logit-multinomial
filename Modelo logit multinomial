@@ -87,3 +87,16 @@ TAXI_CO_SCALED  = exp.DefineVariable('TAXI_CO_SCALED',  TAXI_CO / 100.0, databas
 print("Variables de tiempo de viaje y costo escaladas correctamente.")
 
 
+# Estructura: exp.Beta(Nombre, Valor_Inicial, Límite_Inf, Límite_Sup, Fijo_o_Libre)
+ASC_SIT   = exp.Beta('ASC_SIT', 0, None, None, 0)     # Libre (0)
+ASC_MOTO  = exp.Beta('ASC_MOTO', 0, None, None, 0)    # Libre (0)
+ASC_BUS   = exp.Beta('ASC_BUS', 0, None, None, 0)     # Libre (0)
+ASC_TAXI  = exp.Beta('ASC_TAXI', 0, None, None, 1)    # FIJO EN CERO (1) como referencia base
+
+# Coeficientes genéricos para las variables de impedancia
+B_TIME    = exp.Beta('B_TIME', 0, None, None, 0)      # Coeficiente del tiempo (debe resultar negativo)
+B_COST    = exp.Beta('B_COST', 0, None, None, 0)      # Coeficiente del costo (debe resultar negativo)
+
+print("Parámetros del modelo Logit inicializados.")
+
+
