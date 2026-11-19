@@ -143,14 +143,16 @@ print(f"Archivo de reporte técnico generado: {results.data.htmlFileName}")
 print("=== VALORES DE LOS PARÁMETROS ESTIMADOS ===")
 betas = results.getBetaValues()
 for parametro, valor in betas.items():
-    print(f"{parametro:12} = \t{valor:.4g}")
+    print(f"{parametro:12} = \t{valor:.4g}") # Revisar parámetros
 
 print("\n=== VALIDACIÓN METODOLÓGICA (VALOR DEL TIEMPO - VOT) ===")
 # Extraer el valor numérico exacto de los coeficientes estimados
-b_time_estimado = betas['B_TIME']
+b_timec_estimado = betas['B_TIME_C']
+b_timee_estimado = betas['B_TIME_E']
+b_timeab_estimado = betas['B_TIME_AB']
 b_cost_estimado = betas['B_COST']
 
-# El VOT se calcula como el ratio entre el peso del tiempo y el peso del costo.
+# El VOT se calcula como el ratio entre el peso del tiempo y el peso del costo. INVESTIGAR COMO SERIA CON 4 VARIABLES RESPECTO AL CALCULO DE PARAMETROS
 # Dado que ambos tienen escala idéntica (divididos entre 100), la escala se cancela.
 # Multiplicamos por 60 para convertir el valor de 'Soles/minuto' a 'Soles/hora'.
 vot_soles_hora = (b_time_estimado / b_cost_estimado) * 60
