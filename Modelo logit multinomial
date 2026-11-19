@@ -121,3 +121,21 @@ av = {1: SIT_AV,
 print("Funciones de utilidad y diccionarios de disponibilidad estructurados.")
 
 
+# Definir la probabilidad bajo el modelo Logit Multinomial
+logprob = models.loglogit(V, av, CHOICE)
+
+# Configurar el objeto de estimación de Biogeme
+biogeme_model = bio.BIOGEME(database, logprob)
+biogeme_model.modelName = "modelo_logit_sit_piura"
+
+# Configurar salidas
+biogeme_model.generateHtml = True
+biogeme_model.generatePickle = False
+
+# Ejecutar el algoritmo de estimación
+results = biogeme_model.estimate()
+
+print("¡Calibración completada con éxito!")
+print(f"Archivo de reporte técnico generado: {results.data.htmlFileName}")
+
+
