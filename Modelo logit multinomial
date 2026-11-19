@@ -139,3 +139,26 @@ print("¡Calibración completada con éxito!")
 print(f"Archivo de reporte técnico generado: {results.data.htmlFileName}")
 
 
+print("=== VALORES DE LOS PARÁMETROS ESTIMADOS ===")
+betas = results.getBetaValues()
+for parametro, valor in betas.items():
+    print(f"{parametro:12} = \t{valor:.4g}")
+
+print("\n=== VALIDACIÓN METODOLÓGICA (VALOR DEL TIEMPO - VOT) ===")
+# Extraer el valor numérico exacto de los coeficientes estimados
+b_time_estimado = betas['B_TIME']
+b_cost_estimado = betas['B_COST']
+
+# El VOT se calcula como el ratio entre el peso del tiempo y el peso del costo.
+# Dado que ambos tienen escala idéntica (divididos entre 100), la escala se cancela.
+# Multiplicamos por 60 para convertir el valor de 'Soles/minuto' a 'Soles/hora'.
+vot_soles_hora = (b_time_estimado / b_cost_estimado) * 60
+
+print(f"Coeficiente Tiempo (B_TIME): {b_time_estimado:.4g}")
+print(f"Coeficiente Costo (B_COST)  : {b_cost_estimado:.4g}")
+print("-" * 50)
+print(f"Valor Subjetivo del Tiempo calculado: S/. {vot_soles_hora:.2f} por hora")
+print("-" * 50)
+print("Nota para la tesis: Verificar que B_TIME y B_COST sean estrictamente negativos.")
+
+
