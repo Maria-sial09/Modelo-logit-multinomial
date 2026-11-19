@@ -28,3 +28,15 @@ globals().update(database.variables)
 print(f"Base de datos cargada. Total de registros iniciales: {len(df)}")
 
 
+# Definir criterios de exclusión, cuando por ejemplo no eligieron nada, se pueden añadir mas filtros
+exclude = (CHOICE == 0)
+
+# Aplicar el filtro a la base de datos
+database.remove(exclude)
+
+# Actualizar nuestra variable local de pandas para gráficos posteriores
+df_limpio = database.data
+
+print(f"Limpieza completada. Registros útiles para el modelo Logit: {len(df_limpio)}")
+
+
