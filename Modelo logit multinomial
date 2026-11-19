@@ -69,16 +69,21 @@ plt.show()
 
 
 # Alternativa 1: Buses Actuales
-BUS_TT_SCALED   = exp.DefineVariable('BUS_TT_SCALED',   BUS_TT / 100.0, database)
+BUS_TTC_SCALED   = exp.DefineVariable('BUS_TTC_SCALED',   BUS_TTC / 100.0, database) # Divididas entre 100 para escalarlas y que el modelo no se cuelgue xd
+BUS_TTE_SCALED   = exp.DefineVariable('BUS_TTE_SCALED',   BUS_TTE / 100.0, database)
+BUS_TTAB_SCALED   = exp.DefineVariable('BUS_TTAB_SCALED',   BUS_TTAB / 100.0, database)
 BUS_CO_SCALED   = exp.DefineVariable('BUS_CO_SCALED',   BUS_CO / 100.0, database)
 
 # Alternativa 2: Mototaxis
-MOTO_TT_SCALED  = exp.DefineVariable('MOTO_TT_SCALED',  MOTO_TT / 100.0, database)
-MOTO_CO_SCALED  = exp.DefineVariable('MOTO_CO_SCALED',  MOTO_CO / 100.0, database)
-
+MOTO_TTC_SCALED   = exp.DefineVariable('MOTO_TTC_SCALED',   MOTO_TTC / 100.0, database)
+MOTO_TTE_SCALED   = exp.DefineVariable('MOTO_TTE_SCALED',   MOTO_TTE / 100.0, database)
+MOTO_TTAB_SCALED   = exp.DefineVariable('MOTO_TTAB_SCALED',   MOTO_TTAB / 100.0, database)
+MOTO_CO_SCALED   = exp.DefineVariable('MOTO_CO_SCALED',   MOTO_CO / 100.0, database)
 
 # Alternativa 3: SIT (Sistema Integrado de Transporte)
-SIT_TT_SCALED   = exp.DefineVariable('SIT_TT_SCALED',   SIT_TT / 100.0, database) # Divididas entre 100 para escalarlas y que el modelo no se cuelgue xd
+SIT_TTC_SCALED   = exp.DefineVariable('SIT_TTC_SCALED',   SIT_TTC / 100.0, database)
+SIT_TTE_SCALED   = exp.DefineVariable('SIT_TTE_SCALED',   SIT_TTE / 100.0, database)
+SIT_TTAB_SCALED   = exp.DefineVariable('SIT_TTAB_SCALED',   SIT_TTAB / 100.0, database)
 SIT_CO_SCALED   = exp.DefineVariable('SIT_CO_SCALED',   SIT_CO / 100.0, database)
 
 print("Variables de tiempo de viaje y costo escaladas correctamente.") #Revisar, añadir mas variables
