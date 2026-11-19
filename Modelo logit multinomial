@@ -16,3 +16,15 @@ pd.set_option('display.width', 1000)
 print("Librerías importadas correctamente.")
 
 
+# Cargar el archivo de datos
+df = pd.read_csv("encuestas_movilidad_piura.csv") # Cambiar por el nombre del archivo con los datos
+
+# Inicializar la base de datos compatible con Biogeme
+database = db.Database("data/piura_movilidad", df)
+
+# Inyectar las variables del DataFrame al entorno global de Python
+globals().update(database.variables)
+
+print(f"Base de datos cargada. Total de registros iniciales: {len(df)}")
+
+
