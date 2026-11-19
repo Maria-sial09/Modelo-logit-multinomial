@@ -155,6 +155,7 @@ b_cost_estimado = betas['B_COST']
 # El VOT se calcula como el ratio entre el peso del tiempo y el peso del costo. INVESTIGAR COMO SERIA CON 4 VARIABLES RESPECTO AL CALCULO DE PARAMETROS
 # Dado que ambos tienen escala idéntica (divididos entre 100), la escala se cancela.
 # Multiplicamos por 60 para convertir el valor de 'Soles/minuto' a 'Soles/hora'.
+# Se calculara para cada valor de tiempo, bibliograficamente el valor de tiempo de caminata y espera esentre 1.5 a 3 veces mas que el VOT a bordo
 vot_soles_hora = (b_time_estimado / b_cost_estimado) * 60
 
 print(f"Coeficiente Tiempo (B_TIME): {b_time_estimado:.4g}")
