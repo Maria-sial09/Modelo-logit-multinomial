@@ -140,8 +140,8 @@ b_cost_estimado = betas['B_COST']
 # Dado que ambos tienen escala idéntica (divididos entre 100), la escala se cancela.
 # Multiplicamos por 60 para convertir el valor de 'Soles/minuto' a 'Soles/hora'.
 # Se calculara para cada valor de tiempo, bibliograficamente el valor de tiempo de caminata y espera es entre 1.5 a 3 veces mas que el VOT a bordo
-votc_soles_hora = (b_timee_estimado / b_cost_estimado) * 60
-vote_soles_hora = (b_timec_estimado / b_cost_estimado) * 60
+votc_soles_hora = (b_timec_estimado / b_cost_estimado) * 60
+vote_soles_hora = (b_timee_estimado / b_cost_estimado) * 60
 votab_soles_hora = (b_timeab_estimado / b_cost_estimado) * 60
 
 print(f"Coeficiente Tiempo (B_TIME_C): {b_timec_estimado:.4g}")
