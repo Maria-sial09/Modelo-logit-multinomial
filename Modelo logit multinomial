@@ -27,6 +27,19 @@ globals().update(database.variables)
 
 print(f"Base de datos cargada. Total de registros iniciales: {len(df)}")
 
+plt.figure(figsize=(10, 5))
+chart = sns.countplot(data=df_limpio, x='CHOICE', palette='Set2')
+chart.set_title('Distribución de Elección Modal en los Escenarios Evaluados')
+chart.set_xlabel('Modo de Transporte Elegido')
+chart.set_ylabel('Cantidad de Elecciones')
+
+# Ajustar las etiquetas según los códigos de CHOICE (elección, escenarios)
+# 1: SIT, 2: Mototaxi, 3: Bus Actual, 4: Taxi
+chart.set_xticklabels(['SIT (Buses)', 'Mototaxis', 'Buses Actuales', 'Taxis/Autos'])
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+
 
 # Definir criterios de exclusión, cuando por ejemplo no eligieron nada, se pueden añadir mas filtros
 exclude = (CHOICE == 0)
