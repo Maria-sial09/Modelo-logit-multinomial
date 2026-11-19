@@ -95,7 +95,9 @@ ASC_MOTO  = exp.Beta('ASC_MOTO', 0, None, None, 0)    # Libre (0)
 ASC_SIT   = exp.Beta('ASC_SIT', 0, None, None, 0)     # Libre (0)
 
 # Coeficientes genéricos para las variables de impedancia
-B_TIME    = exp.Beta('B_TIME', 0, None, None, 0)      # Coeficiente del tiempo (debe resultar negativo)
+B_TIME_C    = exp.Beta('B_TIME_C', 0, None, None, 0)      # Coeficiente del tiempo (debe resultar negativo)
+B_TIME_E    = exp.Beta('B_TIME_E', 0, None, None, 0)      # Coeficiente del tiempo (debe resultar negativo)
+B_TIME_AB    = exp.Beta('B_TIME_AB', 0, None, None, 0)      # Coeficiente del tiempo (debe resultar negativo)
 B_COST    = exp.Beta('B_COST', 0, None, None, 0)      # Coeficiente del costo (debe resultar negativo)
 
 print("Parámetros del modelo Logit inicializados.")
